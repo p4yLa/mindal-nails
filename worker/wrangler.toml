@@ -1,0 +1,12 @@
+# Настройки Cloudflare Worker. Секреты сюда НЕ пишем — только через `wrangler secret put`:
+# BOT_TOKEN, CHAT_ID, ADDRESS, ADDRESS_NOTE (адрес мастера не должен лежать в публичном репозитории).
+name = "mindal-booking"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+# База записей (Cloudflare D1, SQLite). В коде доступна как env.DB
+# database_id появится после `npx wrangler d1 create mindal` — вставьте его сюда.
+[[d1_databases]]
+binding = "DB"
+database_name = "mindal"
+database_id = "00000000-0000-0000-0000-000000000000"

@@ -1,0 +1,40 @@
+# Статический сайт: сборка не нужна, публикуем корень репозитория
+[build]
+  publish = "."
+
+# Страница 404 для несуществующих адресов
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Заголовки безопасности для всех страниц
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Шрифты и картинки кэшируем на год — их имена не меняются
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS и JS — неделя (после правок меняйте имя файла или ждите)
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

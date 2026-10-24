@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://p4yla.github.io/mindal-nails/sitemap.xml
