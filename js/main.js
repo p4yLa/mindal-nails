@@ -12,8 +12,8 @@
   var S = window.Schedule;
 
   // Адрес Cloudflare Worker (см. worker/): свободные окна из базы и запись с сообщением в Telegram.
-  // Пустая строка — демо-режим: окна считаются в браузере, запись никуда не уходит.
-  var LEAD_ENDPOINT = '';
+  // Пустая строка — офлайн-демо: окна считаются в браузере, запись никуда не уходит.
+  var LEAD_ENDPOINT = 'https://mindal-booking.p4yla.workers.dev';
 
   var MASTER_PHONE = '+7 (999) 555-01-23';
 

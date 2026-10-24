@@ -145,7 +145,8 @@ async function handleBooking(d, env, origin) {
   ];
   if (comment) lines.push('', '💬 ' + esc(comment));
   // Запись уже в базе. Если Telegram не ответил — не пугаем клиентку ошибкой.
-  await telegram(env, lines.join('\n')).catch(() => false);
+  // notified — дошло ли сообщение до Telegram (видно в ответе, удобно для проверки)
+  const notified = await telegram(env, lines.join('\n')).catch(() => false);
 
   // Точный адрес отдаём только после записи: на сайте его нет, в репозитории тоже
   const address = env.ADDRESS
@@ -154,7 +155,7 @@ async function handleBooking(d, env, origin) {
 
   return json({
     ok: true, id, date, time: fmtTime(start), end: fmtTime(start + svc.dur),
-    dur: svc.dur, total: svc.total, discount: svc.discount, address
+    dur: svc.dur, total: svc.total, discount: svc.discount, address, notified
   }, 200, origin);
 }
 

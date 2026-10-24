@@ -743,3 +743,6 @@ textarea.input { min-height: 96px; resize: vertical; }
 
 /* Поле-ловушка для спам-ботов: людям не видно, боты заполняют */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Пометка «это демо»: заявка уходит разработчику в Telegram */
+.demo-note { margin: var(--sp-3) 0 0; padding: var(--sp-3) var(--sp-4); border-left: 3px solid var(--c-accent); border-radius: var(--r-m, 4px); background: var(--c-accent-soft); font-size: var(--fs-s); color: var(--c-text); }
